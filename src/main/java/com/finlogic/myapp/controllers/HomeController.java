@@ -15,7 +15,7 @@ public class HomeController
     @RequestMapping(params="cmdAction=getLandingPage", method = RequestMethod.GET)
     public ModelAndView showLandingPage(HttpServletRequest request, HttpServletResponse response) {
       ModelAndView mav = new ModelAndView("landing");
-      
+      mav.addObject("data","I am a data sent.");
       return mav;
     }
     @RequestMapping(params="cmdAction=getErrorPage", method = RequestMethod.GET)
