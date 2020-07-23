@@ -15,7 +15,7 @@ public class LoginController
     @RequestMapping(params="cmdAction=getLandingPage", method = RequestMethod.GET)
     public ModelAndView showLandingPage(HttpServletRequest request, HttpServletResponse response) {
       ModelAndView mav = new ModelAndView("landing");
-      
+      mav.addObject("data","Sherlock");
       return mav;
     }
     @RequestMapping(params="cmdAction=getErrorPage", method = RequestMethod.GET)

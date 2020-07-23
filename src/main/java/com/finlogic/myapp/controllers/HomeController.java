@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 
-
 @Controller
 @RequestMapping("home.fin")
 public class HomeController
@@ -15,11 +14,17 @@ public class HomeController
     @RequestMapping(params="cmdAction=getLandingPage", method = RequestMethod.GET)
     public ModelAndView showLandingPage(HttpServletRequest request, HttpServletResponse response) {
       ModelAndView mav = new ModelAndView("landing");
-      mav.addObject("data","I am a data sent.");
+      mav.addObject("data",finpack.FinPack.getProperty("finlib_path"));
       return mav;
     }
     @RequestMapping(params="cmdAction=getErrorPage", method = RequestMethod.GET)
     public ModelAndView showErrorPage(HttpServletRequest request, HttpServletResponse response) {
+      ModelAndView mav = new ModelAndView("error");
+      
+      return mav;
+    }
+    @RequestMapping(params="cmdAction=getHomePage", method = RequestMethod.GET)
+    public ModelAndView showHomePage(HttpServletRequest request, HttpServletResponse response) {
       ModelAndView mav = new ModelAndView("error");
       
       return mav;
